@@ -6,62 +6,43 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 <style>
-	.menu li{
-		display: inline-block;
-		padding: 10px 20px;
-		border-right: 1px solid black;
+	.map{
+		width: 990px;
+		margin: 0 auto;
+		position: relative;
 	}
-	.menu li:last-child{
-		border-right: none;
+	.map:before,
+	.map:after{
+		content : " ";
+		width   : 100%;
+		height  : 200px;
+		position: absolute;
+		left    : 0;
 	}
-	.menu li:nth-child(3){
-		background-color:red;
+	.map:before{
+		top: 0;
+		background-image: linear-gradient(white, rgba(255,255,255,0) )
 	}
-	.box{
-		width: 33.333%;
-		/* height: 200px; */
-		background:red;
-		float: left;
+	.map:after{
+		bottom: 0;
+		background-image: linear-gradient(rgba(255,255,255,0), white )
 	}
-	.box:nth-child(3){
-		background-color: green;
-	}
-	.box:nth-child(3n+1){
-		clear: both;
+	img{
+		max-width: 100%;
 	}
 
+	body{
+		background-color: red;
+	}
+
+	@media screen and (min-width: 320px){
+		body{
+			background-color: green;
+		}
+	}
 </style>
 </head>
 <body>
-	<div class="grid">
-			<div class="box">
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor est libero temporibus numquam reprehenderit officia laudantium, deleniti totam soluta repellat possimus odit unde vitae sequi, dolores aspernatur dicta similique accusantium.</p>
-			</div>
-			<div class="box">
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor est libero temporibus numquam reprehenderit officia laudantium, deleniti totam soluta repellat possimus odit unde vitae sequi, dolores aspernatur dicta similique accusantium.</p>
-			</div>
-			<div class="box">
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor est libero temporibus numquam reprehenderit officia laudantium, deleniti totam soluta repellat possimus odit unde vitae sequi</p>
-			</div>
-			<div class="box">
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor est libero temporibus numquam reprehenderit officia laudantium, deleniti totam soluta repellat possimus odit unde vitae sequi, dolores aspernatur dicta similique accusantium.</p>
-			</div>
-			<div class="box">
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor est libero temporibus numquam reprehenderit officia laudantium, deleniti totam soluta repellat possimus odit unde vitae sequi, dolores aspernatur dicta similique accusantium.</p>
-			</div>
-			<div class="box">
-				<p>Lorem . Dolor est libero temporibus numquam reprehenderit officia laudantium, deleniti totam soluta repellat possimus odit unde vitae sequi, dolores aspernatur dicta similique accusantium.</p>
-			</div>
-			<div class="box">
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor est libero temporibus numquam reprehenderit officia laudantium, deleniti totam soluta repellat possimus odit unde vitae sequi, dolores aspernatur dicta similique accusantium.</p>
-				</div>
-				<div class="box">
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor est libero temporibus numquam reprehenderit officia laudantium, deleniti totam soluta repellat possimus odit unde vitae sequi, dolores aspernatur dicta similique accusantium.</p>
-				</div>
-				<div class="box">
-					<p>Lorem . Dolor est libero temporibus numquam reprehenderit officia laudantium, deleniti totam soluta repellat possimus odit unde vitae sequi, dolores aspernatur dicta similique accusantium.</p>
-				</div>
-
-	</div>
+	<h1>testing</h1>
 </body>
 </html>

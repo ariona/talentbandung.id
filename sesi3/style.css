@@ -58,9 +58,16 @@ body{
 	font-size    : 16px;
 	padding      : 20px 70px 25px 25px;
 	border-radius: 45px;
-	border       : none;
-	box-shadow   : 0 10px 13px rgba(0,0,0,0.05)
+	border       : 2px solid white;
+	box-shadow   : 0 10px 13px rgba(0,0,0,0.05);
+	outline      : none;
+	transition   : border-color 300ms ease-out;
 }
+
+.hero form input:focus{
+	border: 2px solid #57adfe;
+}
+
 .hero form button{
 	position  : absolute;
 	top       : 5px;
@@ -69,4 +76,72 @@ body{
 	color     : #e3a6a9;
 	border    : none;
 	background: none;
+}
+
+.grid-layout{
+	/* background-color: red; */
+}
+
+.grid-layout:after{
+	content: " ";
+	clear  : both;
+	display: block;
+}
+
+.grid-item{
+	width: 33.3333%;
+	float: left;
+	padding: 0 15px;
+}
+
+.grid-item:nth-child(3n+1){
+	clear: both;
+}
+
+.taman{
+	background-color: #ffffff;
+	margin-bottom: 30px;
+	box-shadow: 0 9px 18px rgba(0,0,0,0.05);
+}
+.taman figure{ margin: 0 }
+.taman figure img{ width: 100% }
+.taman-detail{
+	padding: 15px;
+	text-align: center;
+}
+.taman a{
+	text-decoration: none;
+}
+.taman-detail h2{
+	font-size: 28px;
+	margin: 5px 0 15px;
+}
+.taman-detail .title{
+	color: #363636;
+}
+.taman-detail .subtitle{
+	color: #888;
+}
+.taman-detail p{
+	font-size: 14px;
+	color    : #929292;
+}
+
+.footer{
+	text-align: center;
+	padding: 90px 15px 40px;
+	color: #535353;
+}
+
+@media screen and (max-width:990px){
+	.grid-item{ width: 50% }
+	.grid-item:nth-child(3n+1){ clear: none }
+	.grid-item:nth-child(2n+1){ clear: both }
+}
+
+@media screen and (max-width: 480px){
+	.hero{ padding: 30px 15px;}
+	.hero .subtitle{ font-size: 48px}
+	.hero .title{font-size: 50px;}
+	.grid-item{ width: 100% }
 }
