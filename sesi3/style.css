@@ -1,0 +1,72 @@
+* {
+	box-sizing: border-box;
+}
+
+body{
+	background-color : #f8f9fa;
+	background-image : url(images/background.png);
+	background-repeat: no-repeat;
+	background-size  : 100%; /* cover/contain */
+
+	font-family      : Roboto, sans-serif;
+}
+
+.site-content{
+	max-width: 1125px;
+	margin: 0 auto;
+}
+
+.hero{
+	padding   : 120px 15px;
+	text-align: center;
+}
+
+.title, .subtitle{
+	display: block;
+}
+
+.title{
+	font-family: 'Playfair Display';
+}
+
+.subtitle{
+	font-family: 'Caveat';
+	font-weight: normal;
+}
+
+.hero .title{
+	font-size: 72px;
+}
+
+.hero .subtitle{
+	font-size: 64px;
+}
+
+.hero p{
+	font-size  : 22px;
+	font-weight: 300;
+}
+
+.hero form{
+	max-width: 550px;
+	margin   : 70px auto 0;
+	position : relative;
+}
+
+.hero form input{
+	width        : 100%;
+	font-size    : 16px;
+	padding      : 20px 70px 25px 25px;
+	border-radius: 45px;
+	border       : none;
+	box-shadow   : 0 10px 13px rgba(0,0,0,0.05)
+}
+.hero form button{
+	position  : absolute;
+	top       : 5px;
+	right     : 18px;
+	font-size : 36px;
+	color     : #e3a6a9;
+	border    : none;
+	background: none;
+}
