@@ -7,10 +7,38 @@
 	<title>Sesi 5 – Latihan 1</title>
 </head>
 <body>
+	<input type="text" id="filter">
 	<ul id="buah"></ul>
 
 	<script>
+		var buah = ["Mangga","Jeruk","Lemon","Semangka"];
+		var listBuah = document.getElementById('buah');
+		for( var i=0;i<buah.length; i++ ){
+			var listItem = document.createElement('li');
+			listItem.classList.add('buah');
+			listItem.textContent = buah[i];
+			listBuah.appendChild(listItem);
+		}
+
 		
+		var filter = document.getElementById('filter');
+		filter.addEventListener('keyup', filterBuah );
+
+		function filterBuah(){
+			// var buah = document.getElementsByClassName('buah');
+
+			// for( var i=0; i < buah.length; i++ ){
+			// 	var item = buah[i].textContent.toLowerCase();
+
+			// 	if( item.indexOf( filter.value.toLowerCase() ) != -1 ) {
+			// 		buah[i].style.display = "block";
+			// 	} else {
+			// 		buah[i].style.display = "none";
+			// 	}
+			// }
+				
+		}
+
 	</script>
 </body>
 </html>

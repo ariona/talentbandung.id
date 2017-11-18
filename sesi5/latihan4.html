@@ -7,13 +7,20 @@
 	<title>Sesi 5 – Latihan 4</title>
 </head>
 <body>
+	<input type="text" id="filter" placeholder="Cari taman">
 	<ul id="list-taman">
-
 	</ul>
 
 	<script src="jquery.min.js"></script>
 	<script>
-	
+		$.get('https://www.ariona.net/talentbandung/', function(data,status){
+			var list = $('#list-taman');
+			$.each(data, function(item){
+				var html = '<li><img src="'+this.image.thumbnail+'"/><h2>'+this.nama+'</h2></li>'
+				list.append(html)
+			})
+
+		})
 	</script>
 </body>
 </html>
