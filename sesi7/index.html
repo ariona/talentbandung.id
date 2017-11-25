@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jelajah Taman Tematik Bandung</title>
+	<link href="https://fonts.googleapis.com/css?family=Caveat%7CPlayfair+Display:700%7CRoboto:300,400,400i" rel="stylesheet">
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="site-content" id="app">
+		<header class="hero">
+			<h1>
+				<span class="subtitle">Jelajah</span>
+				<span class="title">Taman Bandung</span>
+			</h1>
+			<p>Ada lebih dari 20+ Taman Tematik untuk tempat Hang-out Anda</p>
+
+			<form action="#">
+				<input type="text" v-model="search" placeholder="Cari berdasarkan lokasi atau nama taman">
+				<button type="submit"><i class="ion-ios-search-strong"></i></button>
+			</form>
+		</header>
+
+		<main>
+			<div class="daftar-taman grid-layout">
+				<taman 
+					v-for="taman in filteredTaman"
+					v-bind:data="taman"
+					v-bind:key="taman.key"
+					></taman>
+			</div>
+		</main>
+
+		<footer class="footer">
+			<p>&copy; copyright 2017 by talentbandung.id</p>
+		</footer>
+	</div>	
+	
+	<script type="text/x-template" id="template-taman">
+		<div class="grid-item">
+			<article class="taman">
+				<figure>
+					<a href="single.html">
+						<img v-bind:src="data.image.thumbnail" alt="">
+					</a>
+				</figure>
+				<div class="taman-detail">
+					<h2>
+						<a href="single.html">
+							<span class="subtitle">Taman</span>
+							<span class="title">{{data.nama}}</span>
+						</a>
+					</h2>
+					<p>{{data.alamat}}</p>
+				</div>
+			</article>
+		</div>
+	</script>
+	<script src="jquery.min.js"></script>
+	<script src="vue.js"></script>
+	
+	<script>
+		Vue.component('taman', {
+			props: ["data"],
+			template: '#template-taman'
+		})
+		var app = new Vue({
+			el: '#app',
+			data: {
+				daftarTaman: [],
+				search: ''
+			},
+			created: function(){
+				this.getData()
+			},
+			computed: {
+				filteredTaman: function(){
+					var _this = this;
+					return this.daftarTaman.filter( function(item){
+						return item.nama.toLowerCase().indexOf(_this.search.toLowerCase()) > -1 || item.alamat.toLowerCase().indexOf(_this.search.toLowerCase()) > -1
+					})
+				}
+			},
+			methods: {
+				getData: function(){
+					var _this = this;
+					$.get('https://ariona.net/talentbandung/', function(data){
+						_this.daftarTaman = data;
+					});
+				}
+			}
+		})
+	</script>
+</body>
+</html>

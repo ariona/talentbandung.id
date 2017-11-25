@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+<body>
+
+   <div id="talentbandung">
+      <!-- <div class="notice" v-if="error">
+         <p>{{errorMessage}}</p>
+      </div>
+      <p v-bind:title="tooltip">{{message}}</p>
+      <ul>
+         <li v-for="buah in daftarBuah">{{buah}}</li>
+      </ul>
+      <input type="text" v-model="message">
+      <p>{{message}}</p> -->
+
+      <ol>
+         <buah v-for="buah in daftarBuah" v-bind:buah="buah" v-bind:key="buah.id"></buah>
+      </ol>
+
+      <input type="text" v-model="message">
+      <p>{{message}}</p>
+      <p>{{reverse}}</p>
+   </div>
+
+   <script src="jquery.min.js"></script>
+   <script src="vue.js"></script>
+
+   <script type="text/x-template" id="item-buah">
+      <li>{{buah.nama}}</li>
+   </script>
+
+   <script>
+      Vue.component('buah',{
+         props: ["buah"],
+         template: '#item-buah'
+      })
+
+      var app = new Vue({
+         el: '#talentbandung',
+         data: {
+            daftarBuah: [
+               {
+                  id:0,
+                  nama:"Semangka"
+               }, 
+               {
+                  id:1,
+                  nama:"Melon"
+               },
+               {
+                  id:2,
+                  nama:"Salak"
+               },{
+                  id:3,
+                  nama:"Apel"
+               }
+            ],
+            dataTaman: [],
+            message: "Selamat datang di talent bandung",
+            tooltip: 'Saya tooltip',
+            error: false,
+            errorMessage: "Maaf saldo anda tidak mencukupi"
+         },
+         created: function() {
+            this.getData();
+         },
+         computed: {
+            getData: function(){
+               var _this = this
+               $.get('url', function(data){
+                  _this.dataTaman = data
+               });
+            }
+         }
+      })
+   </script>
+</body>
+</html>
